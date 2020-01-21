@@ -13,11 +13,19 @@ class ProfileHeader extends Component {
         <li key={edu._id} className="list-group-item">
           <h4>{edu.school}</h4>
           <p>
-            <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
+            { 
+              edu.from 
+              ? 
+              (
+                ( new Date(edu.from)).toLocaleDateString() 
+              )
+              : 
+              '??' 
+            } -
             {edu.to === null ? (
               ' Now'
             ) : (
-              <Moment format="YYYY/MM/DD">{edu.to}</Moment>
+              ( new Date(edu.to)).toLocaleDateString() 
             )}
           </p>
           <p>
@@ -47,15 +55,25 @@ class ProfileHeader extends Component {
     const { experience } = this.props;
     let expItems = null;
     if(experience && experience.length > 0){
-      expItems = [...experience].map(exp => (
+      expItems = [...experience].map(exp => {
+        return (
         <li key={exp._id} className="list-group-item">
           <h4>{exp.company}</h4>
+          
           <p>
-            <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
+          { 
+              exp.from 
+              ? 
+              (
+                ( new Date(exp.from)).toLocaleDateString() 
+              )
+              : 
+              '??' 
+            } -
             {exp.to === null ? (
               ' Now'
             ) : (
-              <Moment format="YYYY/MM/DD">{exp.to}</Moment>
+              ( new Date(exp.to)).toLocaleDateString() 
             )}
           </p>
           <p>
@@ -76,7 +94,7 @@ class ProfileHeader extends Component {
             )}
           </p>
         </li>
-      ));
+      )});
   
     }
 
@@ -129,7 +147,7 @@ class ProfileHeader extends Component {
             {isEmpty(profile.bio) ? null : <div className='col-12' style={{border  :'0.5px solid #C3C3C3'}}></div> }
               <div className='rounded' style={{padding : '4px', border : ''}}> 
               <p className="text-left" style={{fontSize : '14px', margin : '0px'}}> 
-                <i class="fas fa-briefcase" style={{marginRight : '4px'}}></i> {profile.status}{' '}
+                <i className="fas fa-briefcase" style={{marginRight : '4px'}}></i> {profile.status}{' '}
                 {isEmpty(profile.company) ? null : (
                   <span>at {profile.company}</span>
                 )}
@@ -137,7 +155,7 @@ class ProfileHeader extends Component {
               
               {
                 isEmpty(profile.location) ? null : 
-                  <p className="text-left" style={{fontSize : '14px', margin : '0px'}}><i class="fas fa-map-marker-alt" style={{marginRight : '4px'}}></i> {profile.location}</p>
+                  <p className="text-left" style={{fontSize : '14px', margin : '0px'}}><i className="fas fa-map-marker-alt" style={{marginRight : '4px'}}></i> {profile.location}</p>
               }
               
               {/* {isEmpty(profile.user.email) ? null : (

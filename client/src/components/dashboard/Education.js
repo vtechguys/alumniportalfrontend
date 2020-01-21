@@ -40,12 +40,18 @@ class Education extends Component {
           <span className='school-name'>{edu.school}</span>
           <span className='degree-name'>{edu.degree}</span>
           <span className='time-period'>
-            <Moment format="YYYY/MM/DD">{edu.from}</Moment> <span>- </span>
-            {edu.to === null ? (
-              ' Now'
-            ) : (
-               <Moment format="YYYY/MM/DD">{edu.to}</Moment>
-            )}
+            {
+              edu.from ?
+              (new Date(edu.from)).toLocaleDateString()
+              : '??'
+            }<span>- </span>
+            {
+            
+            edu.to ?
+            (new Date(edu.to)).toLocaleDateString()
+            : 'Now'
+            
+            }
           </span>
         </div>
         <div>

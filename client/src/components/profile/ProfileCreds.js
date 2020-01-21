@@ -9,12 +9,18 @@ class ProfileCreds extends Component {
       <li key={exp._id} className="list-group-item">
         <h4>{exp.company}</h4>
         <p>
-          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
-          {exp.to === null ? (
-            ' Now'
-          ) : (
-            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
-          )}
+
+        {
+              exp.from?
+              (new Date(exp.from)).toLocaleDateString()
+              : '??'
+            } -
+            { exp.to?
+              (new Date(exp.to)).toLocaleDateString()
+              : 'Now'}
+
+
+        
         </p>
         <p>
           <strong>Position:</strong> {exp.title}
@@ -40,12 +46,15 @@ class ProfileCreds extends Component {
       <li key={edu._id} className="list-group-item">
         <h4>{edu.school}</h4>
         <p>
-          <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
-          {edu.to === null ? (
-            ' Now'
-          ) : (
-            <Moment format="YYYY/MM/DD">{edu.to}</Moment>
-          )}
+        {
+              edu.from?
+              (new Date(edu.from)).toLocaleDateString()
+              : '??'
+            } -
+            { edu.to?
+              (new Date(edu.to)).toLocaleDateString()
+              : 'Now'}
+          
         </p>
         <p>
           <strong>Degree:</strong> {edu.degree}

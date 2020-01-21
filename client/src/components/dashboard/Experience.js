@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import { deleteExperience } from '../../actions/profileActions';
 
 import './Dashboard.css';
+import Education from './Education';
 
 class Experience extends Component {
   onDeleteClick(id) {
@@ -18,12 +19,14 @@ class Experience extends Component {
           <span className='company-name'>{exp.company}</span>
           <span className='title-in-company'>{exp.title}</span>
           <span className='time-period'>
-            <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
-            {exp.to === null ? (
-              ' Now'
-            ) : (
-              <Moment format="YYYY/MM/DD">{exp.to}</Moment>
-            )}
+            {
+              exp.from?
+              (new Date(exp.from)).toLocaleDateString()
+              : '??'
+            } -
+            { exp.to?
+              (new Date(exp.to)).toLocaleDateString()
+              : 'Now'}
           </span>
         </div>
         <div>
