@@ -6,9 +6,10 @@ class ProfileHeader extends Component {
 
   getEducation = ()=>{
     const { education } = this.props;
-
-    if(education){
-      const eduItems = education.map(edu => (
+    let eduItems  = null;
+    if(education && education.length > 0){
+      
+       eduItems = [...education].map(edu => (
         <li key={edu._id} className="list-group-item">
           <h4>{edu.school}</h4>
           <p>
@@ -35,18 +36,18 @@ class ProfileHeader extends Component {
         </li>
       ));
       
-      return eduItems
     }
     
+    return eduItems
 
     
   }
 
   getExpirence = ()=>{
     const { experience } = this.props;
-
-    if(experience){
-      const expItems = experience.map(exp => (
+    let expItems = null;
+    if(experience && experience.length > 0){
+      expItems = [...experience].map(exp => (
         <li key={exp._id} className="list-group-item">
           <h4>{exp.company}</h4>
           <p>
@@ -77,10 +78,10 @@ class ProfileHeader extends Component {
         </li>
       ));
   
-      return expItems
     }
 
-    
+    return expItems
+
   }
   render() {
     const { profile } = this.props;
