@@ -1,0 +1,15 @@
+.landing{
+    margin-top: 100px;
+}
+
+.landing  .login-btn, .landing  .signup-btn{
+    width: 40%;
+    background-color: #2f3094!important;
+    float: right;
+    outline: none;
+    box-shadow: none;
+}
+
+.landing  a{
+    color: white;
+}

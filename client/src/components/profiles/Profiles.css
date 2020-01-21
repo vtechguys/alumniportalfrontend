@@ -1,0 +1,31 @@
+.profiles .profiles-heading {
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 200;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profiles .profiles-sub-heading {
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 200;
+    color: #555;
+    margin: 0;
+}
+
+.custom-file {
+    margin-top: 30px;
+}
+
+.no-profile-text {
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 200;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
+    border: 1px solid #f5f5f5;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 70px;
+}

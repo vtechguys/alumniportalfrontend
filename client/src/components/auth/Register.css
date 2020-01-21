@@ -1,0 +1,71 @@
+.register {
+    margin-top: 70px;
+}
+
+.register .form-container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 50px 20px;
+    border: 1px solid #f7f7f7;
+}
+
+.register .bpitlogo {
+    display: block;
+    margin: auto;
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+.register h1 {
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 200;
+    font-size: 40px;
+}
+
+.register .lead {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10%;
+}
+
+.register input.form-control {
+    width: 90%;
+    margin: auto;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #333;
+}
+
+.register small{
+    float: right;
+    color: #5c5d85!important;
+}
+.register .register-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.register .register-actions a {
+    color: #2f3094;
+}
+
+.register input[type='submit'] {
+    width: 40%;
+    background: #2f3094;
+    float: right;
+    outline: none;
+    box-shadow: none;
+}
+
+.register .invalid-feedback {
+    width: 90%;
+    margin: auto;
+    margin-top: 2px;
+}

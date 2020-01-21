@@ -1,0 +1,69 @@
+.edit-profile-heading {
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 200;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.edit-profile-wrapper input.form-control,
+.edit-profile-wrapper select,
+.edit-profile-wrapper textarea {
+    width: 100%;
+    margin: auto;
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #f5f5f5 !important;
+    color: #333;
+}
+
+.edit-profile-wrapper input.form-control::placeholder,
+.edit-profile-wrapper select::placeholder,
+.edit-profile-wrapper textarea::placeholder {
+    color: #999;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.edit-profile-wrapper .back-icon {
+    position: relative;
+    top: -2px;
+    font-size: 12px;
+    margin-right: 7px;
+}
+
+.edit-profile-wrapper small.form-text {
+    margin-left: 12px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #999 !important;
+}
+
+.edit-profile-wrapper input[type="submit"] {
+    width: 40%;
+    background: #2f3094;
+    outline: none;
+    box-shadow: none;
+    margin: auto;
+}
+
+.edit-profile-wrapper .add-social-btn {
+    display: block;
+    background: #fff;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-top: 30px;
+    font-size: 15px;
+    border: 1px solid #e9e9e9;
+}
+.edit-profile-wrapper .add-social-btn:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.edit-profile-wrapper .input-group-text {
+    background: #fff !important;
+    border-radius: 15px !important;
+    border: 1px solid #e9e9e9 !important;
+}

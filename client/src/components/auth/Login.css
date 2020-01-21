@@ -1,0 +1,66 @@
+.login {
+    margin-top: 70px;
+}
+
+.login .form-container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 50px 20px;
+    border: 1px solid #f7f7f7;
+}
+
+.login .bpitlogo {
+    display: block;
+    margin: auto;
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+.login h1 {
+    font-family: 'Source Sans Pro', serif;
+    font-weight: 200;
+    font-size: 40px;
+}
+
+.login .lead {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10%;
+}
+
+.login input.form-control {
+    width: 90%;
+    margin: auto;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #333;
+}
+
+.login .login-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.login .login-actions a {
+    color: #2f3094;
+}
+
+.login .login-actions input[type='submit'] {
+    width: 40%;
+    background: #2f3094;
+    outline: none;
+    box-shadow: none;
+}
+
+.login .invalid-feedback {
+    width: 90%;
+    margin: auto;
+    margin-top: 2px;
+}

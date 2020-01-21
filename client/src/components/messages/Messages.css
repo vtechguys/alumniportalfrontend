@@ -1,0 +1,23 @@
+
+
+.messages .current-user{
+    height: 70px;
+    background: #2f3094;
+    border: 0.5px solid grey;
+}
+
+.messages .user-area{
+    min-height: 500px;
+    background: #d3d4eb;  
+    border: 0.5px solid rgb(195, 205, 247); 
+}
+
+.messages .message-area{
+    min-height: 500px;
+    border: 0.5px solid rgb(195, 205, 247);
+    /* background: #0b0c1a;    */
+}
+
+.messages .message-text-area{
+    min-height: 50px;
+}
