@@ -4,7 +4,7 @@ const app = express();
 const pathToBuild = path.join(__dirname, 'client', 'build');
 console.log(pathToBuild);
 app.use(express.static(pathToBuild));
-app.get('/*', function (req, res) {
+app.get('*', function (req, res) {
     res.sendFile(path.join(pathToBuild, 'index.html'));
   });
 app.listen(process.env.PORT || 4500, (err)=>{
