@@ -31,6 +31,7 @@ export const addPost = postData => dispatch => {
 
 // Get Posts
 export const getPosts = () => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setPostLoading());
   axios
     .get(`${BASE_URL}/api/posts`)
@@ -50,6 +51,7 @@ export const getPosts = () => dispatch => {
 
 // Get Post
 export const getPost = id => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setPostLoading());
   axios
     .get(`${BASE_URL}/api/posts/${id}`)
@@ -68,6 +70,7 @@ export const getPost = id => dispatch => {
 };
 
 export const getPostByTag = tag => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setPostLoading());
   axios
     .get(`${BASE_URL}/api/posts/tags/${tag}`)
@@ -87,6 +90,7 @@ export const getPostByTag = tag => dispatch => {
 
 // Delete Post
 export const deletePost = (id, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   if (window.confirm("Are You sure ? This NOT be undone")) {
     axios
       .delete(`${BASE_URL}/api/posts/${id}`)
@@ -108,6 +112,7 @@ export const deletePost = (id, history) => dispatch => {
 
 // Add Like
 export const addLike = id => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/posts/like/${id}`)
     .then(res => dispatch(getPosts()))

@@ -14,6 +14,7 @@ import {
 const { BASE_URL } = config;
 
 export const verifyProfileHandle = (status, user) => dispatch => {
+  // eslint-disable-line no-unused-vars
   console.log("Verify", status);
   // dispatch(setProfileActionLoading());
   axios
@@ -36,6 +37,7 @@ export const verifyProfileHandle = (status, user) => dispatch => {
     });
 };
 export const assignRoleHandle = (role, user) => dispatch => {
+  // eslint-disable-line no-unused-vars
   // dispatch(setProfileActionLoading());
   axios
     .post(`${BASE_URL}/api/users/assign-role`, {
@@ -58,6 +60,7 @@ export const assignRoleHandle = (role, user) => dispatch => {
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setProfileLoading());
   axios
     .get(`${BASE_URL}/api/profile`)
@@ -77,6 +80,7 @@ export const getCurrentProfile = () => dispatch => {
 
 // Get profile by handle
 export const getProfileByHandle = handle => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setProfileLoading());
   axios
     .get(`${BASE_URL}/api/profile/handle/${handle}`)
@@ -96,6 +100,7 @@ export const getProfileByHandle = handle => dispatch => {
 
 // Create Profile
 export const createProfile = (profileData, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/profile`, profileData)
     .then(res => history.push("/dashboard"))
@@ -109,6 +114,7 @@ export const createProfile = (profileData, history) => dispatch => {
 
 // Add experience
 export const addExperience = (expData, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/profile/experience`, expData)
     .then(res => history.push("/dashboard"))
@@ -122,6 +128,7 @@ export const addExperience = (expData, history) => dispatch => {
 
 // Add education
 export const addEducation = (eduData, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/profile/education `, eduData)
     .then(res => history.push("/dashboard"))
@@ -191,6 +198,7 @@ export const getProfiles = () => dispatch => {
 // Delete account & profile
 export const deleteAccount = data => dispatch => {
   if (window.confirm("Are you sure? This can NOT be undone!")) {
+    // eslint-disable-line no-unused-vars
     axios
       .delete(`${BASE_URL}/api/profile/${data}`)
       .then(res =>
