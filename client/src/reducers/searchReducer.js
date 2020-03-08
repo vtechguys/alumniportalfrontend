@@ -11,7 +11,6 @@ const initialState = {
 function updateLatestTimestampResult(state, result){
     let prv = state.result.timestamp ? new Date(state.result.timestamp) : new Date();
     let cur= new Date(result.timestamp);
-    // console.log(state.result && cur.getTime() > prv.getTime());
     if(state.result && cur.getTime() > prv.getTime()){
            
         return {
@@ -45,7 +44,6 @@ export default function(state = initialState, action){
 
         case SEARCH_KEYWORD :
             let payload = action.payload;
-            // console.log("payload",payload);
             return updateLatestTimestampResult(state, payload);
             // return {
             //     ...state,

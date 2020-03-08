@@ -30,8 +30,6 @@ class ResetPassword extends Component{
             this.callAPI(userData)
         }
         // this.props.forgotPassword(userData)
-
-        // console.log(userData)
     }
 
     callAPI = (userData = {})=>{

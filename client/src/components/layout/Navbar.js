@@ -19,7 +19,6 @@ class Navbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
     const route = this.props.history.location.pathname.split('/')[1]
-    console.log(route)
     const authLinks = (
       <div className='navbar-nav col-11 justify-content-around'>
          <div className="col-5 form-inline  my-lg-1">

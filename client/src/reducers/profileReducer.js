@@ -23,7 +23,6 @@ export default function (state = initialState, action) {
         loading: true
       };
     case GET_PROFILE:
-      console.log("GET_PROFILE", action)
       return {
         ...state,
         profile: action.payload,
@@ -41,7 +40,6 @@ export default function (state = initialState, action) {
         profile: null
       };
     case VERFIY_USER:
-      console.log("reducer", action);
       return {
         ...state,
         profileActionLoading: false,

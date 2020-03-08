@@ -10,7 +10,6 @@ export const registerUser = (userData, history) => dispatch => {
     .post(`${BASE_URL}/api/users/register`, userData)
     .then(res => history.push('/login'))
     .catch(err =>{
-      console.log(err)
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
@@ -61,14 +60,11 @@ export const forgotPassword = userData => dispatch => {
       })
     }
   })
-  .catch(err => {
-    console.log(err)
-  })
+  .catch(err => {})
 }
 
 // Set logged in user
 export const setCurrentUser = decoded => {
-  console.log("decode", decoded);
   return {
     type: SET_CURRENT_USER,
     payload: decoded
