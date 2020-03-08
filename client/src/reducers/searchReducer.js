@@ -5,19 +5,18 @@ import {
 } from '../actions/types'
 
 const initialState = {
-    result : {},
-    loading : false,
+    result: {},
+    loading: false,
 }
-function updateLatestTimestampResult(state, result){
+function updateLatestTimestampResult(state, result) {
     let prv = state.result.timestamp ? new Date(state.result.timestamp) : new Date();
-    let cur= new Date(result.timestamp);
-    // console.log(state.result && cur.getTime() > prv.getTime());
-    if(state.result && cur.getTime() > prv.getTime()){
-           
+    let cur = new Date(result.timestamp);
+    if (state.result && cur.getTime() > prv.getTime()) {
+
         return {
             ...state,
-            result : result,
-            loading : false
+            result: result,
+            loading: false
         }
     }
     const result1 = state.result;
@@ -28,31 +27,30 @@ function updateLatestTimestampResult(state, result){
         loading: false
     }
 }
-export default function(state = initialState, action){
-    switch(action.type){
-        case SEARCH_LOADING :
-            return{
+export default function (state = initialState, action) {
+    switch (action.type) {
+        case SEARCH_LOADING:
+            return {
                 ...state,
-                loading : true
+                loading: true
             }
 
-        case EMPTY_SEARCH_RESULT :
-            return{
+        case EMPTY_SEARCH_RESULT:
+            return {
                 ...state,
-                result : action.payload,
-                loading : false
+                result: action.payload,
+                loading: false
             }
 
-        case SEARCH_KEYWORD :
+        case SEARCH_KEYWORD:
             let payload = action.payload;
-            // console.log("payload",payload);
             return updateLatestTimestampResult(state, payload);
-            // return {
-            //     ...state,
-            //     result : action.payload,
-            //     loading : false
-            // }
-        default : 
+        // return {
+        //     ...state,
+        //     result : action.payload,
+        //     loading : false
+        // }
+        default:
             return state
     }
 }

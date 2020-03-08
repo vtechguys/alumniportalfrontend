@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
@@ -16,7 +16,7 @@ class Profiles extends Component {
     this.state = {
       filename: 'Choose File',
       // isUploading: false,
-      profiles : [],
+      profiles: [],
       file: null
     }
   }
@@ -24,17 +24,16 @@ class Profiles extends Component {
   componentDidMount() {
     this.props.getProfiles();
   }
-  onFileUpload(){
+  onFileUpload() {
   }
 
   uploadHandle = (file) => {
-    if(this.state.filename === 'Choose File' || !file) {
+    if (this.state.filename === 'Choose File' || !file) {
       alert('Please select file');
-    } 
-    else {      
-      console.log(file);
+    }
+    else {
       this.props.uploadDocumentRequest(file);
-      this.setState({filename : 'Choose File', file : null})
+      this.setState({ filename: 'Choose File', file: null })
     }
   }
 
@@ -44,10 +43,9 @@ class Profiles extends Component {
 
     if (profiles === null || loading) {
       profileItems = <div class="alert alert-danger" role="alert">
-      <Link className='alert-link' to={{pathname : '/create-profile'}}> Create your profile </Link> to view Members.
+        <Link className='alert-link' to={{ pathname: '/create-profile' }}> Create your profile </Link> to view Members.
     </div>;
     } else {
-      // console.log(profiles)
       if (profiles.length > 0) {
         profileItems = profiles.map(profile => (
           <ProfileItem key={profile._id} profile={profile} />
@@ -67,23 +65,23 @@ class Profiles extends Component {
                 Browse and connect with alumni
               </p>
               <p className="profiles-sub-heading lead text-center">
-                Alumni who have completed the profile are listed only!   
+                Alumni who have completed the profile are listed only!
               </p>
-              
-              <div className='col' style={{margin : '10px 0px'}}>
+
+              <div className='col' style={{ margin: '10px 0px' }}>
                 {this.props.upload.isLoading ? <Spinner /> :
-                  this.props.auth.user.role === 'superadmin' ? 
-                  <div className='row justify-content-end'>
-                  <div className="custom-file col-6 ">
-                    <div className='row justify-content-between'>
-                    <input type="file" onChange={(e) => {this.setState({filename : e.target.files[0].name, file: e.target.files[0]})}} className="custom-file-input col-10" name='usersFile' id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" />
-                    <label className="custom-file-label col-10" for="inputGroupFile01">{this.state.filename}</label>
-                    <button className='btn btn-secondary' type="submit" onClick={()=> this.uploadHandle(this.state.file)}>Upload</button>
+                  this.props.auth.user.role === 'superadmin' ?
+                    <div className='row justify-content-end'>
+                      <div className="custom-file col-6 ">
+                        <div className='row justify-content-between'>
+                          <input type="file" onChange={(e) => { this.setState({ filename: e.target.files[0].name, file: e.target.files[0] }) }} className="custom-file-input col-10" name='usersFile' id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" />
+                          <label className="custom-file-label col-10" for="inputGroupFile01">{this.state.filename}</label>
+                          <button className='btn btn-secondary' type="submit" onClick={() => this.uploadHandle(this.state.file)}>Upload</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  </div>
-                  :
-                  null
+                    :
+                    null
                 }
               </div>
               {profileItems}
@@ -109,8 +107,8 @@ Profiles.propTypes = {
 
 const mapStateToProps = state => ({
   profile: state.profile,
-  auth : state.auth,
+  auth: state.auth,
   upload: state.upload
 });
 
-export default connect(mapStateToProps, { getProfiles,  uploadDocumentRequest})(Profiles);
+export default connect(mapStateToProps, { getProfiles, uploadDocumentRequest })(Profiles);

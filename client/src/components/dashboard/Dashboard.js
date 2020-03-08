@@ -23,8 +23,6 @@ class Dashboard extends Component {
   render() {
     const { user } = this.props.auth;
     const { profile, loading } = this.props.profile;
-    console.log(user)
-    console.log(profile)
     let dashboardContent;
 
     if (profile === null || loading) {
@@ -34,39 +32,39 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div >
-            <div className='col-12' style={{margin : '25px 0px'}}>
+            <div className='col-12' style={{ margin: '25px 0px' }}>
               <div className='row profile-wrapper'>
-            <div className='profile-details'>
-                <div className='col-1 rounded-2'>
-                  <img src={profile.user.avatar} style={{height : '80px', width : '80px', objectFit : 'cover'}}/>
+                <div className='profile-details'>
+                  <div className='col-1 rounded-2'>
+                    <img src={profile.user.avatar} style={{ height: '80px', width: '80px', objectFit: 'cover' }} />
+                  </div>
+
+                  <div className='col-6' style={{ marginLeft: '40px', marginTop: '-2px' }}>
+                    <p style={{ margin: '0px' }}>
+                      <Link className='profile-link' to={`/profile/${profile.handle}`} style={{ fontSize: '18px' }}>@{profile.handle}</Link>
+                      <span style={{ marginLeft: '10px' }}>{profile.verifiedAccount ? <i className="fas  fa-check-circle" style={{ color: '#00B446' }}></i> : null}</span>
+                    </p>
+                    <p className="lead profile-firstname text-muted" style={{ fontSize: '14px', marginLeft: '5px', marginBottom: '5px' }}>{user.name}</p>
+                    <div style={{ margin: '0px' }}>
+                      {profile.skills.map((skill, index) => (
+                        <span
+                          style={{
+                            margin: '0px 3px'
+                          }}
+                          key={index}
+                          className="badge skill-badge">
+
+                          {skill}
+                        </span>
+
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                <div className='col-6' style={{marginLeft : '40px', marginTop: '-2px'}}>
-                <p style={{margin : '0px'}}>
-              <Link className='profile-link' to={`/profile/${profile.handle}`} style={{fontSize : '18px'}}>@{profile.handle}</Link>
-              <span style={{marginLeft : '10px'}}>{profile.verifiedAccount ? <i className="fas  fa-check-circle" style={{color : '#00B446'}}></i> : null}</span>
-              </p>
-              <p className="lead profile-firstname text-muted" style={{fontSize : '14px', marginLeft : '5px', marginBottom : '5px'}}>{user.name}</p>
-            <div style={{margin : '0px'}}>
-                {profile.skills.map((skill, index) => (
-                  <span 
-                  style={{
-                    margin : '0px 3px'
-                  }} 
-                  key={index} 
-                  className="badge skill-badge">
-
-                {skill}
-                </span>
-                  
-                ))}
-                </div>
-                </div>
-                </div>
-                  
                 <ProfileActions />
               </div>
-            
+
             </div>
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
@@ -77,7 +75,7 @@ class Dashboard extends Component {
             >
               Delete My Account
             </button> */}
-             {/* <WidgetBot
+            {/* <WidgetBot
               server="664732642486517761"
               channel="664732643014737939"
               shard="https://disweb.dashflo.net"

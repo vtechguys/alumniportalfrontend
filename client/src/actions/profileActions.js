@@ -11,50 +11,48 @@ import {
   ASSIGN_ROLE,
   PROFILE_ACTION
 } from './types';
-const {BASE_URL} = config
+const { BASE_URL } = config
 
-export const verifyProfileHandle = (status, user) => dispatch =>{
-  console.log("Verify", status)
+export const verifyProfileHandle = (status, user) => dispatch => {
   // dispatch(setProfileActionLoading());
   axios
-  .post(`${BASE_URL}/api/profile/verify`, {
-    userId: user._id,
-    status
-  })
-  .then(res=>{
-    console.log("then call");
-    dispatch({
-      type: VERFIY_USER,
-      payload: res.data
+    .post(`${BASE_URL}/api/profile/verify`, {
+      userId: user._id,
+      status
+    })
+    .then(res => {
+      dispatch({
+        type: VERFIY_USER,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: VERFIY_USER,
+        payload: null
+      });
     });
-  })
-  .catch(err=>{
-    dispatch({
-      type: VERFIY_USER,
-      payload: null
-    });
-  });
 
 };
-export const assignRoleHandle = (role, user) => dispatch =>{
+export const assignRoleHandle = (role, user) => dispatch => {
   // dispatch(setProfileActionLoading());
   axios
-  .post(`${BASE_URL}/api/users/assign-role`, {
-    userId: user._id,
-    role: role
-  })
-  .then(res=>{
-    dispatch({
-      type: ASSIGN_ROLE,
-      payload: res.data
+    .post(`${BASE_URL}/api/users/assign-role`, {
+      userId: user._id,
+      role: role
+    })
+    .then(res => {
+      dispatch({
+        type: ASSIGN_ROLE,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ASSIGN_ROLE,
+        payload: null
+      });
     });
-  })
-  .catch(err=>{
-    dispatch({
-      type: ASSIGN_ROLE,
-      payload: null
-    });
-  });
 
 };
 
@@ -216,7 +214,7 @@ export const setProfileLoading = () => {
     type: PROFILE_LOADING
   };
 };
-export const setProfileActionLoading = () =>{
+export const setProfileActionLoading = () => {
   return {
     type: PROFILE_ACTION
   }

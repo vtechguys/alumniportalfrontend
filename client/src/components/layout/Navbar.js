@@ -19,54 +19,53 @@ class Navbar extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
     const route = this.props.history.location.pathname.split('/')[1]
-    console.log(route)
     const authLinks = (
       <div className='navbar-nav col-11 justify-content-around'>
-         <div className="col-5 form-inline  my-lg-1">
-           {
-             route === 'feed' || route === 'profiles'
-             ?
+        <div className="col-5 form-inline  my-lg-1">
+          {
+            route === 'feed' || route === 'profiles'
+              ?
               <Search route={route} />
               :
               null
-           }
-                 
-              </div>
-      <ul className="navbar-nav ml-auto">
-      
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
+          }
+
+        </div>
+        <ul className="navbar-nav ml-auto">
+
+          <li className="nav-item">
+            <Link className="nav-link" to="/dashboard">
+              Dashboard
           </Link>
-        </li>
-        <li className="nav-item ">
-          <Link className="nav-link" to="/feed">
-            Post Feed
+          </li>
+          <li className="nav-item ">
+            <Link className="nav-link" to="/feed">
+              Post Feed
           </Link>
-        </li>
-        {/* <li className="nav-item">
+          </li>
+          {/* <li className="nav-item">
           <Link className="nav-link" to="/messages">
             Messages
           </Link>
         </li> */}
-        
-        <li className="nav-item">
-          <a
-            href=""
-            onClick={this.onLogoutClick.bind(this)}
-            className="nav-link"
-          >
-            {/* <img
+
+          <li className="nav-item">
+            <a
+              href=""
+              onClick={this.onLogoutClick.bind(this)}
+              className="nav-link"
+            >
+              {/* <img
               className="rounded-circle"
               src={user.avatar}
               alt={user.name}
               style={{ width: '25px',height : '25px', marginRight: '5px',objectFit : 'cover' }}
               title="You must have a Gravatar connected to your email to display an image"
             />{' '} */}
-            Logout
+              Logout
           </a>
-        </li>
-      </ul>
+          </li>
+        </ul>
       </div>
     );
 
@@ -86,10 +85,10 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm sticky-top mb-4" style={{marginBottom : '5rem'}}>
+      <nav className="navbar navbar-expand-sm sticky-top mb-4" style={{ marginBottom: '5rem' }}>
         <div className="container-fluid">
-          <Link className="navbar-brand" style={{display : 'flex'}} to="/">
-          <img className="bpitlogo" src={require('../../img/bpitlogo.png')} />
+          <Link className="navbar-brand" style={{ display: 'flex' }} to="/">
+            <img className="bpitlogo" src={require('../../img/bpitlogo.png')} />
             {/* <p>AlumniPortal</p> */}
           </Link>
           <button
@@ -102,7 +101,7 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="mobile-nav">
-            { isAuthenticated ? <ul className="navbar-nav ">
+            {isAuthenticated ? <ul className="navbar-nav ">
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}

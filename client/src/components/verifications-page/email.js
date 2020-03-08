@@ -1,25 +1,22 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import queryString from 'query-string';
 import Spinner from '../common/Spinner';
 // import {} from '../../actions';
 
-class EmailVerification{
+class EmailVerification {
 
-    componentDidMount(){
+    componentDidMount() {
         // api req
         const { match, location } = this.props;
         const pathname = location.pathname;
         const parseQueryString = queryString.parse(pathname);
-
-        console.log(parseQueryString);
+    }
+    resendEmailVerication() {
 
     }
-    resendEmailVerication(){
-
-    }
-    render(){
+    render() {
         const { verification } = this.props;
 
         return (
@@ -27,23 +24,23 @@ class EmailVerification{
                 <h2>We are verifing you!</h2>
                 <div>
                     {
-                        verification.isLoading 
+                        verification.isLoading
                             ?
-                        <Spinner/>
+                            <Spinner />
                             :
-                        <div>
-                            {
-                                !verification.didGetVerified
-                                    ?
-                                <div>
-                                    <h3>Email didn't get verified retry withnew code</h3>
-                                    <button>Resend</button>
-                                </div>
-                                    :
-                                null
-                            }
-                            <button>Go to Home</button>
-                        </div>
+                            <div>
+                                {
+                                    !verification.didGetVerified
+                                        ?
+                                        <div>
+                                            <h3>Email didn't get verified retry withnew code</h3>
+                                            <button>Resend</button>
+                                        </div>
+                                        :
+                                        null
+                                }
+                                <button>Go to Home</button>
+                            </div>
                     }
                 </div>
             </div>

@@ -12,8 +12,8 @@ class PostForm extends Component {
     super(props);
     this.state = {
       post: '',
-      tag : '',
-      tags  : [],
+      tag: '',
+      tags: [],
       errors: {}
     };
 
@@ -29,50 +29,43 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(e.target.name)
     const { user } = this.props.auth;
-    if(this.state.tags.length > 2){
+    if (this.state.tags.length > 2) {
       const newPost = {
         text: this.state.post,
-        tags : this.state.tags,
+        tags: this.state.tags,
         name: user.name,
         avatar: user.avatar
       };
-  
+
       this.props.addPost(newPost);
-      this.setState({ post: '', tag : '', tags : [] });
-    }else{
+      this.setState({ post: '', tag: '', tags: [] });
+    } else {
       alert('Minimum 3 tags required')
     }
-    
+
   }
 
   onChange(e) {
-
-    
-      this.setState({ [e.target.name]: e.target.value });
-   
+    this.setState({ [e.target.name]: e.target.value });
   }
 
-  onKeyPress = (e)=>{
-
-    // console.log(e.target.name)
-    // console.log(e.keyCode)
-    if(e.target.name === 'tag' && e.keyCode === 13){
+  onKeyPress = (e) => {
+    if (e.target.name === 'tag' && e.keyCode === 13) {
       this.setState({
-        tags : [...this.state.tags, this.state.tag.toLowerCase()],
-        tag : ''
+        tags: [...this.state.tags, this.state.tag.toLowerCase()],
+        tag: ''
       })
     }
   }
 
-  onTagClick = (e, index)=>{
+  onTagClick = (e, index) => {
     e.preventDefault()
-    
+
     const tags = this.state.tags
     tags.splice(index, 1)
     this.setState({
-      tags : [...tags]
+      tags: [...tags]
     })
   }
 
@@ -84,35 +77,35 @@ class PostForm extends Component {
         <div className="card card-info">
           <div className="card-header text-white">Say Somthing</div>
           <div className="card-body">
-          <div style={{
-            minHeight : '25px',
-            margin : '4px'
-          }}>
-                {
-                  this.state.tags.map((tag, index)=>{
-                    return (
-                      <span 
-                        style={{
-                          margin : '0px 3px',
-                          padding : '5px',
-                          background : '#2f3094'
-                        }} 
-                        key={index} 
-                        className="badge badge-success">
+            <div style={{
+              minHeight: '25px',
+              margin: '4px'
+            }}>
+              {
+                this.state.tags.map((tag, index) => {
+                  return (
+                    <span
+                      style={{
+                        margin: '0px 3px',
+                        padding: '5px',
+                        background: '#2f3094'
+                      }}
+                      key={index}
+                      className="badge badge-success">
 
                       {tag}
-                        <span onClick={e => this.onTagClick(e, index)}>
-                          <i style={{
-                          marginLeft : '5px',
-                          cursor : 'pointer'
+                      <span onClick={e => this.onTagClick(e, index)}>
+                        <i style={{
+                          marginLeft: '5px',
+                          cursor: 'pointer'
                         }} className="far fa-times-circle"></i>
-                        </span>
-                      
                       </span>
-                    )
-                  })
-                }
-              </div>
+
+                    </span>
+                  )
+                })
+              }
+            </div>
             <div >
               <div className="form-group">
                 <TextAreaFieldGroup
@@ -133,7 +126,7 @@ class PostForm extends Component {
                   error={errors.text}
                 />
               </div>
-              
+
               <button type="button" onClick={this.onSubmit} className="btn submit-btn">
                 Submit
               </button>

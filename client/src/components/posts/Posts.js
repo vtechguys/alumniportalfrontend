@@ -7,51 +7,49 @@ import Spinner from '../common/Spinner';
 import { getPosts, getPostByTag } from '../../actions/postActions';
 
 class Posts extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      tag : null
+      tag: null
     }
   }
-  componentDidUpdate(prevProps){
-    if(this.state.tag && this.state.tag !== this.props.match.params.tag){
-      this.setState({tag : this.props.match.params.tag})
+  componentDidUpdate(prevProps) {
+    if (this.state.tag && this.state.tag !== this.props.match.params.tag) {
+      this.setState({ tag: this.props.match.params.tag })
 
       this.props.getPostByTag(this.props.match.params.tag)
     }
   }
   componentDidMount() {
-    
-      if(this.props.match.params.tag){
-        this.setState({tag : this.props.match.params.tag})
-        this.props.getPostByTag(this.props.match.params.tag)
-      }else{
-        this.props.getPosts();
-      }
+
+    if (this.props.match.params.tag) {
+      this.setState({ tag: this.props.match.params.tag })
+      this.props.getPostByTag(this.props.match.params.tag)
+    } else {
+      this.props.getPosts();
+    }
   }
 
   render() {
     const { posts, loading, } = this.props.post;
     const auth = this.props.auth;
     let postContent;
-    console.log(posts)
     if (posts === null || loading) {
       postContent = <Spinner />;
     } else {
       postContent = <PostFeed posts={posts} />;
     }
     let isValidProfile = false;
-    
-    if(auth && auth.user && auth.user.verifiedAccount){
+
+    if (auth && auth.user && auth.user.verifiedAccount) {
       isValidProfile = true;
     }
-    console.log("Here",auth.user);
     return (
       <div className="feed">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              { isValidProfile ? <PostForm /> : <div class="alert alert-danger" role="alert">Your profile must be verified to be able to post or comment.</div> } 
+              {isValidProfile ? <PostForm /> : <div class="alert alert-danger" role="alert">Your profile must be verified to be able to post or comment.</div>}
               {postContent}
             </div>
           </div>

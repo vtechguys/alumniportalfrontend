@@ -26,126 +26,126 @@ class Profile extends Component {
     }
   }
 
-  renderProfileForHigherRole = ()=>{
+  renderProfileForHigherRole = () => {
 
     const { profile, loading, profileActionLoading } = this.props.profile;
     const { user } = this.props.auth;
     return (
       <div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className='row'>
+        <div className="row">
+          <div className="col-md-12">
+            <div className='row'>
               <Link to="/profiles" className="btn btn-light mb-3 float-left">
                 Back To Profiles
               </Link>
               {
-                profileActionLoading ? 
-                <div style={{
-                  position: 'absolute', backgroundColor: 'grey', width: '100%', height: '100%'
+                profileActionLoading ?
+                  <div style={{
+                    position: 'absolute', backgroundColor: 'grey', width: '100%', height: '100%'
                   }}
-                >
+                  >
 
-                </div>
-                : null
+                  </div>
+                  : null
               }
 
               {
                 user && ROLES_THAT_ARE_ALLOWED_TO_VERIFY_AND_ASSIGN_ROLES.includes(user.role) && profile ?
                   <React.Fragment >
-                    <div style={{margin : '0px 30px'}} >
-                    {
-                      
-                        <button className='btn btn-primary mb-3' onClick={()=>{
+                    <div style={{ margin: '0px 30px' }} >
+                      {
+
+                        <button className='btn btn-primary mb-3' onClick={() => {
                           const status = profile.verifiedAccount;
                           return this.props.verifyProfileHandle(!status, profile.user)
-                          }}
+                        }}
                         >
-                          {profile.verifiedAccount ? 'unverify': 'verify'}
+                          {profile.verifiedAccount ? 'unverify' : 'verify'}
                         </button>
-                    
 
-                    }
+
+                      }
                     </div>
                     <div style={{}}>
                       {/* <br/> */}
                       {
                         <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Assign Role
+                          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Assign Role
                         </button>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          {
-                            config.VALID_ASSIGN_ROLE.map((role)=>{
-                              const bg = profile.user.role === role ? '#00b446': '##E3003F';
-                                 return ( <button className='dropdown-item'
-                                    key = {role} 
-                                    onClick={ ()=>(this.props.assignRoleHandle(role, profile.user))}
-                                    style={{
-                                      backgroundColor: bg
-                                    }}
-                                  >
-                                    {role}
-                                  </button> )
-                           
-                                  })
-                          }
+                          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {
+                              config.VALID_ASSIGN_ROLE.map((role) => {
+                                const bg = profile.user.role === role ? '#00b446' : '##E3003F';
+                                return (<button className='dropdown-item'
+                                  key={role}
+                                  onClick={() => (this.props.assignRoleHandle(role, profile.user))}
+                                  style={{
+                                    backgroundColor: bg
+                                  }}
+                                >
+                                  {role}
+                                </button>)
+
+                              })
+                            }
+                          </div>
                         </div>
-                      </div>
-                        
+
                       }
                     </div>
                   </React.Fragment>
-                : null
+                  : null
               }
-              </div>
             </div>
-            <div className="col-md-6" />
           </div>
-          <ProfileHeader profile={profile} />
-          {/* <ProfileAbout profile={profile} />
+          <div className="col-md-6" />
+        </div>
+        <ProfileHeader profile={profile} />
+        {/* <ProfileAbout profile={profile} />
           <ProfileCreds
             education={profile.education}
             experience={profile.experience}
           /> */}
-          {profile.githubusername ? (
-            <ProfileGithub username={profile.githubusername} />
-          ) : null}
-        </div>
+        {profile.githubusername ? (
+          <ProfileGithub username={profile.githubusername} />
+        ) : null}
+      </div>
     )
-    
+
   }
 
-  renderProfileForNormalRole = ()=>{
+  renderProfileForNormalRole = () => {
 
     const { profile, loading, profileActionLoading } = this.props.profile;
     const { user } = this.props.auth;
 
-    return(
+    return (
       <div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className='row'>
+        <div className="row">
+          <div className="col-md-12">
+            <div className='row'>
               <Link to="/profiles" className="btn btn-light mb-3 float-left">
                 Back To Profiles
               </Link>
               {
-                profileActionLoading ? 
-                <div style={{
-                  position: 'absolute', backgroundColor: 'grey', width: '100%', height: '100%'
+                profileActionLoading ?
+                  <div style={{
+                    position: 'absolute', backgroundColor: 'grey', width: '100%', height: '100%'
                   }}
-                >
+                  >
 
-                </div>
-                : null
+                  </div>
+                  : null
               }
-              </div>
             </div>
-            <div className="col-md-6" />
           </div>
-          <div className='row'>
-          <ProfileHeader profile={profile} 
-              education={profile.education}
-              experience={profile.experience} />
+          <div className="col-md-6" />
+        </div>
+        <div className='row'>
+          <ProfileHeader profile={profile}
+            education={profile.education}
+            experience={profile.experience} />
           {/* <ProfileAbout profile={profile} /> */}
           {/* <ProfileCreds
             education={profile.education}
@@ -154,8 +154,8 @@ class Profile extends Component {
           {profile.githubusername ? (
             <ProfileGithub username={profile.githubusername} />
           ) : null}
-          </div>
         </div>
+      </div>
     )
   }
 
@@ -163,17 +163,14 @@ class Profile extends Component {
     const { profile, loading, profileActionLoading } = this.props.profile;
     const { user } = this.props.auth;
     let profileContent;
-    console.log('profile_updated_now',profile);
-
-
 
     if (profile === null || loading) {
       profileContent = <Spinner />;
     } else {
-      
-      if(ROLES_THAT_ARE_ALLOWED_TO_VERIFY_AND_ASSIGN_ROLES.indexOf(user.role) > -1){
+
+      if (ROLES_THAT_ARE_ALLOWED_TO_VERIFY_AND_ASSIGN_ROLES.indexOf(user.role) > -1) {
         profileContent = this.renderProfileForHigherRole()
-      }else{
+      } else {
         profileContent = this.renderProfileForNormalRole()
       }
 
