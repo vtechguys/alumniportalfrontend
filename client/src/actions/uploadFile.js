@@ -39,7 +39,6 @@ export function uploadAvatarRequest(file, userId) {
     let data = new FormData();
     data.append('file', file);
     data.append('userId', userId)
-    console.log(userId)
     // data.append('name', name);
 
     return (dispatch) => {

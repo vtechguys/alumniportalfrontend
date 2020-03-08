@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default function uploadFileReducer(state = initialState, action){
-    console.log(action.payload)
     switch(action.type) {
         case 'UPLOAD_DOCUMENT_SUCCESS':
             return {

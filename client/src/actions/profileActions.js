@@ -14,7 +14,6 @@ import {
 const {BASE_URL} = config
 
 export const verifyProfileHandle = (status, user) => dispatch =>{
-  console.log("Verify", status)
   // dispatch(setProfileActionLoading());
   axios
   .post(`${BASE_URL}/api/profile/verify`, {
@@ -22,7 +21,6 @@ export const verifyProfileHandle = (status, user) => dispatch =>{
     status
   })
   .then(res=>{
-    console.log("then call");
     dispatch({
       type: VERFIY_USER,
       payload: res.data

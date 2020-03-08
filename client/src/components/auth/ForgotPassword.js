@@ -18,10 +18,7 @@ class ForgotPassword extends Component{
         const userData = {
         email: this.state.email,
         };
-        console.log(userData)
         this.props.forgotPassword(userData)
-
-        // console.log(userData)
     }
 
     onChange = (e)=>{

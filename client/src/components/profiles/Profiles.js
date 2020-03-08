@@ -32,7 +32,6 @@ class Profiles extends Component {
       alert('Please select file');
     } 
     else {      
-      console.log(file);
       this.props.uploadDocumentRequest(file);
       this.setState({filename : 'Choose File', file : null})
     }
@@ -47,7 +46,6 @@ class Profiles extends Component {
       <Link className='alert-link' to={{pathname : '/create-profile'}}> Create your profile </Link> to view Members.
     </div>;
     } else {
-      // console.log(profiles)
       if (profiles.length > 0) {
         profileItems = profiles.map(profile => (
           <ProfileItem key={profile._id} profile={profile} />

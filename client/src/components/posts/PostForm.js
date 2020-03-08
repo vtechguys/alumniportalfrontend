@@ -29,7 +29,6 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(e.target.name)
     const { user } = this.props.auth;
     if(this.state.tags.length > 2){
       const newPost = {
@@ -56,8 +55,6 @@ class PostForm extends Component {
 
   onKeyPress = (e)=>{
 
-    // console.log(e.target.name)
-    // console.log(e.keyCode)
     if(e.target.name === 'tag' && e.keyCode === 13){
       this.setState({
         tags : [...this.state.tags, this.state.tag.toLowerCase()],
