@@ -1,12 +1,17 @@
-import isEmpty from '../validation/is-empty';
+import isEmpty from "../validation/is-empty";
 
-import { SET_CURRENT_USER, FORGOT_PASSWORD, RESET_PASSWORD, EMAIL_VERIFIED } from '../actions/types';
+import {
+  SET_CURRENT_USER,
+  FORGOT_PASSWORD,
+  RESET_PASSWORD,
+  EMAIL_VERIFIED
+} from "../actions/types";
 
 const initialState = {
   isAuthenticated: false,
   user: {},
-  isEmailValid : false,                                 //if email exists, reset password
-  success : false                                       //reset password check
+  isEmailValid: false, //if email exists, reset password
+  success: false //reset password check
 };
 
 export default function(state = initialState, action) {
@@ -19,22 +24,22 @@ export default function(state = initialState, action) {
       };
 
     case FORGOT_PASSWORD:
-      return{
+      return {
         ...state,
-        isEmailValid : true
-      }
+        isEmailValid: true
+      };
 
     case RESET_PASSWORD:
-      return{
+      return {
         ...state,
-        success : true
-      }
+        success: true
+      };
 
-    case EMAIL_VERIFIED :
-      return{
+    case EMAIL_VERIFIED:
+      return {
         ...state,
-        success : true
-      }
+        success: true
+      };
     default:
       return state;
   }

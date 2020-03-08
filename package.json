@@ -12,6 +12,8 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "husky": "^4.2.3"
+  },
   "description": ""
 }
