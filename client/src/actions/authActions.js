@@ -60,7 +60,7 @@ export const forgotPassword = userData => dispatch => {
         })
       }
     })
-}
+}.catch(err => {})
 
 // Set logged in user
 export const setCurrentUser = decoded => {
