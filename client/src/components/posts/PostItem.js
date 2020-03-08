@@ -38,7 +38,6 @@ class PostItem extends Component {
   renderControls = () => {
     const {auth, post} = this.props
     const higherRoles = ['superadmin','admin', 'moderator']
-    console.log(higherRoles.indexOf(auth.role) > -1)
     const controlView = 
       <span style={{
         cursor : 'pointer',
@@ -52,9 +51,7 @@ class PostItem extends Component {
   }
 
   render() {
-const { post, auth, showActions } = this.props;
-console.log(auth.user)    
-
+    const { post, auth, showActions } = this.props
     return (
       <div className="post-feed">
       <div className="card card-body mb-3">

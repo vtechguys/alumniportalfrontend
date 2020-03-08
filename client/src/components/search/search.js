@@ -20,7 +20,6 @@ class Search extends Component {
     onChange = (e)=>{
         
         const route = this.props.route
-        console.log(route)
         const key = route === 'profiles' ? 'profile' : 'post'
 
         this.setState({
@@ -37,7 +36,6 @@ class Search extends Component {
         this.props.emptySearchResult()
     }
     render(){
-        console.log(this.props.search);
         return (
             <div className='col-md-12'>
                 <div className='row'>

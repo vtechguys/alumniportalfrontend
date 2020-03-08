@@ -5,12 +5,7 @@ import {Link} from 'react-router-dom'
 
 
 const SearchDropdown = (props)=>{
-
     const {profiles, posts} = props.searchResult
-    console.log(props.searchResult)
-
-
-
 
     return (
         <div className='container ' 
@@ -67,7 +62,6 @@ const SearchDropdown = (props)=>{
                 profiles && profiles.length > 0
                 ?
                 profiles.map(profile => {
-                    console.log(profile)
                     return (
                         <div className='container'>
                             <div className='row'>

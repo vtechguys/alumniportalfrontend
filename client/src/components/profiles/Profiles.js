@@ -49,7 +49,6 @@ class Profiles extends Component {
         </div>
       );
     } else {
-      // console.log(profiles)
       if (profiles.length > 0) {
         profileItems = profiles.map(profile => (
           

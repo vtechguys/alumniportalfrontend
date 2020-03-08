@@ -41,8 +41,6 @@
   "license": "ISC",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm test"
-    }
+      "pre-commit": "npm run lint"    }
   }
 }

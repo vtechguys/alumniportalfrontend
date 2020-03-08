@@ -41,7 +41,6 @@ export default function(state = initialState, action) {
         profile: null
       };
     case VERFIY_USER:
-      console.log("reducer", action);
       return {
         ...state,
         profileActionLoading: false,

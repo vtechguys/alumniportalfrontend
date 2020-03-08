@@ -163,9 +163,6 @@ class Profile extends Component {
     const { profile, loading, profileActionLoading } = this.props.profile;
     const { user } = this.props.auth;
     let profileContent;
-    console.log('profile_updated_now',profile);
-
-
 
     if (profile === null || loading) {
       profileContent = <Spinner />;

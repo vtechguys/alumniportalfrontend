@@ -68,7 +68,6 @@ export const forgotPassword = userData => dispatch => {
 
 // Set logged in user
 export const setCurrentUser = decoded => {
-  console.log("decode", decoded);
   return {
     type: SET_CURRENT_USER,
     payload: decoded

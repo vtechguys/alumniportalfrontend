@@ -34,7 +34,6 @@ class Posts extends Component {
     const { posts, loading, } = this.props.post;
     const auth = this.props.auth;
     let postContent;
-    console.log(posts)
     if (posts === null || loading) {
       postContent = <Spinner />;
     } else {
@@ -45,7 +44,6 @@ class Posts extends Component {
     if(auth && auth.user && auth.user.verifiedAccount){
       isValidProfile = true;
     }
-    console.log("Here",auth.user);
     return (
       <div className="feed">
         <div className="container">
