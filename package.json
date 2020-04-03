@@ -7,6 +7,9 @@
     "start": "node index.js",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
+  "engines": {
+    "node": "^13.12.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -14,5 +17,13 @@
     "node": "^13.12.0"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtechguys/alumniportalfrontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtechguys/alumniportalfrontend/issues"
+  },
+  "homepage": "https://github.com/vtechguys/alumniportalfrontend#readme",
   "description": ""
 }
