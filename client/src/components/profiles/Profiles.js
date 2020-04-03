@@ -39,27 +39,40 @@ class Profiles extends Component {
     const { profiles, loading } = this.props.profile;
     let profileItems;
 
-    if (profiles === null || loading) {
+    
+    if (loading) {
+      
       profileItems = (
-        <div class="alert alert-danger" role="alert">
-          <Link className="alert-link" to={{ pathname: "/create-profile" }}>
-            Create your profile
-          </Link>
-          to view Members.
+        <div className="container col-12" >
+          <Spinner />
         </div>
-      );
+      )
+
     } else {
-      if (profiles.length > 0) {
+
+      if(profiles === null){
+        profileItems = (
+          <div class="alert alert-danger" role="alert">
+            <Link className="alert-link" to={{ pathname: "/create-profile" }}>
+              Create your profile
+            </Link>
+            to view Members.
+          </div>
+        );
+      }
+      else if (profiles.length > 0) {
         profileItems = profiles.map(profile => (
           
             <ProfileItem key={profile._id} profile={profile} />
          
         ));
-      } else {
+      } 
+      else if(profiles.length === 0){
         profileItems = (
           <h4 className="no-profile-text">No profiles found...</h4>
         );
       }
+      
     }
 
     return (

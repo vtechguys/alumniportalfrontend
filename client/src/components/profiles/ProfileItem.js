@@ -10,21 +10,18 @@ class ProfileItem extends Component {
     const { profile } = this.props;
     console.log(profile);
     return (
-      <div className="profile-item col-lg-4 col-md-3 col-xs-12">
+      <div className="profile-item col-lg-3 col-md-3 col-xs-12">
         <div className="card">
+          <div className="profile-pic">
           <img
             src={profile.user.avatar}
             alt={profile.user.name + " profile pic"}
-            style={{ width: "100%" }}
+            // style={{ width: "100%" , height : "100%"}}
           />
-            <h3>
-              {profile.user.name.charAt(0).toUpperCase() +
-                profile.user.name
-                  .substring(1, profile.user.name.length)
-                  .toLowerCase()}
-            </h3>
+          </div>
+            
           
-          <Link to={`/profile/${profile.handle}`} >
+          {/* <Link to={`/profile/${profile.handle}`} >
             <p>
               @{profile.handle}
               {profile.verifiedAccount ? (
@@ -34,12 +31,35 @@ class ProfileItem extends Component {
                 ></i>
               ) : null}
             </p>
-          </Link>
+          </Link> */}
 
-          <p className="title">{profile.status}</p>
+          <Link to={`/profile/${profile.handle}`} >
+            <p className="username">
+                {profile.user.name.charAt(0).toUpperCase() +
+                  profile.user.name
+                    .substring(1, profile.user.name.length)
+                    .toLowerCase()}
+                    {profile.verifiedAccount ? (
+                <i
+                  className="fas  fa-check-circle"
+                  style={{ color: "#00B446", marginLeft: 5 }}
+                ></i>
+              ) : null}
+              </p>
+              </Link>
 
-          <p>{profile.company}</p>
-          <div style={{ margin: "24px 0" }}>
+          <p className="title">{profile.status}
+                {
+                  profile.company ? ` @ ${profile.company}` : null
+                }
+          
+          </p>
+                {
+                  // profile.company ? 
+                  // <p className="company">@{profile.company}</p> : null
+                }
+          
+          {/* <div style={{ margin: "6px 0" }}>
             {profile.website ? (
               <a href={ profile.website} style={{ margin: 2 }}>
                 <i className="fas fa-globe"></i>
@@ -57,7 +77,7 @@ class ProfileItem extends Component {
                   </Link>
                 ))
               : null}
-          </div>
+          </div> */}
           
         </div>
       </div>

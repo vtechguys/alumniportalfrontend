@@ -5,16 +5,47 @@
 
 .profile-item .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
+  max-width: 250px;
+  margin: 12px 0px;
   text-align: center;
   font-family: arial;
+  transition-delay: 50ms;
+  /* transition-property: initial; */
+  transition-timing-function: ease-in-out;
 }
 
+.profile-item .profile-pic{
+  margin: 15px;
+  max-height: 160px;
+  min-height: 160px;
+  
+  /* border: 0.5px solid grey; */
+
+}
+
+.profile-item .profile-pic img{
+  max-height: 160px;
+  min-height: 160px;
+  max-width: 160px;
+  border-radius: 50%;
+}
+
+.profile-item .card:hover{
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.profile-item .username{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px 0px 2px 0px;;
+}
 .profile-item .title {
   color: grey;
-  font-size: 18px;
+  font-size: 14px;
+  margin : 2px 0px 12px 0px;
+  font-weight: 500;
 }
+
 
 .profile-item button {
   border: none;
