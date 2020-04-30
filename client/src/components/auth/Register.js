@@ -57,6 +57,19 @@ class Register extends Component {
             msg = "Are you sure you are bpitian?";
             return msg;
           }
+          
+          var arr = ['027','028','029','030']; //adding random numbers as i didn't know the course codes offered by our college
+          if(!arr.includes(CourseCode)){
+            msg = "Are you sure you are bpitian?";
+            return msg;
+          }
+
+          var arr = ['07','08','09','10','11','12','13','14','15']; //assuming college started in year 2007
+          if(!arr.includes(YearOfAdmision)){
+            msg = "Are you sure you are bpitian?";
+            return msg;
+          }
+          
           this.setState({
             enrollmentDetails: {
               RollNumber,
