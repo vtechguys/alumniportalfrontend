@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
-import { connect } from 'react-redux';
-import { loginUser } from '../../actions/authActions';
-import TextFieldGroup from '../common/TextFieldGroup';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions";
+import TextFieldGroup from "../common/TextFieldGroup";
 
-import './Login.css';
+import "./Login.css";
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       errors: {}
     };
 
@@ -22,13 +22,13 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      this.props.history.push("/dashboard");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      this.props.history.push("/dashboard");
     }
 
     if (nextProps.errors) {
@@ -59,11 +59,12 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="form-container col-md-6 m-auto">
-              <img className="bpitlogo" src={require('../../img/bpitlogo.png')} />
+              <img
+                className="bpitlogo"
+                src={require("../../img/bpitlogo.png")}
+              />
               <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">
-                Sign in to your account
-              </p>
+              <p className="lead text-center">Sign in to your account</p>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="Email Address"
@@ -83,8 +84,17 @@ class Login extends Component {
                   error={errors.password}
                 />
                 <div className="login-actions">
-                  <Link style={{fontSize : '12px'}} to={{pathname : '/forgot-password'}} >Forgot Password?</Link>
-                  <input type="submit" className="btn btn-info btn-block submit-btn" value="Login" />
+                  <Link
+                    style={{ fontSize: "12px" }}
+                    to={{ pathname: "/forgot-password" }}
+                  >
+                    Forgot Password?
+                  </Link>
+                  <input
+                    type="submit"
+                    className="btn btn-info btn-block submit-btn"
+                    value="Login"
+                  />
                 </div>
               </form>
             </div>

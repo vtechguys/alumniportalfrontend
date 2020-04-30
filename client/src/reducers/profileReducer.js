@@ -6,7 +6,7 @@ import {
   VERFIY_USER,
   ASSIGN_ROLE,
   PROFILE_ACTION
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   profileActionLoading: false,
@@ -15,7 +15,7 @@ const initialState = {
   loading: false
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case PROFILE_LOADING:
       return {
@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
         loading: true
       };
     case GET_PROFILE:
-      console.log("GET_PROFILE", action)
+      console.log("GET_PROFILE", action);
       return {
         ...state,
         profile: action.payload,
@@ -41,14 +41,13 @@ export default function (state = initialState, action) {
         profile: null
       };
     case VERFIY_USER:
-      console.log("reducer", action);
       return {
         ...state,
         profileActionLoading: false,
         profile: action.payload
       };
     case ASSIGN_ROLE:
-      const profile = state.profile;
+      var profile = state.profile;
       profile.user = action.payload;
       return {
         ...state,

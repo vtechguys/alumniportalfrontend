@@ -1,0 +1,65 @@
+{
+  "plugins": ["prettier", "react"],
+  "parser": "babel-eslint",
+  "settings": {
+    "react": {
+      // "createClass": "createReactClass", // Regex for Component Factory to use,
+      "pragma": "React", // Pragma to use, default to "React"
+      "version": "detect" // Detect version of react
+    },
+    "propWrapperFunctions": [
+      // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+      "forbidExtraProps",
+      { "property": "freeze", "object": "Object" },
+      { "property": "myFavoriteWrapper" }
+    ],
+    "linkComponents": [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+      "Hyperlink",
+      { "name": "Link", "linkAttribute": "to" }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6, // change if require extra features
+    "sourceType": "module", // moduleing
+    "ecmaFeatures": {
+      // any specific feature
+      "arrowFunctions": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "forOf": true,
+      "generators": false,
+      "modules": true,
+      "objectLiteralComputedProperties": true,
+      "objectLiteralDuplicateProperties": false,
+      "objectLiteralShorthandMethods": true,
+      "objectLiteralShorthandProperties": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "restParams": true,
+      "jsx": true
+    }
+  },
+  "extends": [
+    "prettier",
+    "prettier/react",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-undef": "error",
+    "no-unused-vars": "warn"
+    
+  },
+  "reportUnusedDisableDirectives": true
+}

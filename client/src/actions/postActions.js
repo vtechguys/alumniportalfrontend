@@ -1,5 +1,5 @@
-import axios from 'axios';
-import config from '../config/index'
+import axios from "axios";
+import config from "../config/index";
 import {
   ADD_POST,
   GET_ERRORS,
@@ -8,8 +8,8 @@ import {
   GET_POST,
   POST_LOADING,
   DELETE_POST
-} from './types';
-const {BASE_URL} = config
+} from "./types";
+const { BASE_URL } = config;
 // Add Post
 export const addPost = postData => dispatch => {
   dispatch(clearErrors());
@@ -31,6 +31,7 @@ export const addPost = postData => dispatch => {
 
 // Get Posts
 export const getPosts = () => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setPostLoading());
   axios
     .get(`${BASE_URL}/api/posts`)
@@ -50,6 +51,7 @@ export const getPosts = () => dispatch => {
 
 // Get Post
 export const getPost = id => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setPostLoading());
   axios
     .get(`${BASE_URL}/api/posts/${id}`)
@@ -68,13 +70,14 @@ export const getPost = id => dispatch => {
 };
 
 export const getPostByTag = tag => dispatch => {
-  dispatch(setPostLoading())
+  // eslint-disable-line no-unused-vars
+  dispatch(setPostLoading());
   axios
     .get(`${BASE_URL}/api/posts/tags/${tag}`)
-    .then(res => 
+    .then(res =>
       dispatch({
-        type : GET_POSTS,
-        payload : res.data
+        type: GET_POSTS,
+        payload: res.data
       })
     )
     .catch(err =>
@@ -83,32 +86,33 @@ export const getPostByTag = tag => dispatch => {
         payload: null
       })
     );
-}
+};
 
 // Delete Post
-export const deletePost =( id, history )=> dispatch => {
-  if(window.confirm('Are You sure ? This NOT be undone')){
-  axios
-    .delete(`${BASE_URL}/api/posts/${id}`)
-    .then(res =>{
-      history.push('/feed')
-      dispatch({
-        type: DELETE_POST,
-        payload: id
-      }) 
-    }
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
+export const deletePost = (id, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
+  if (window.confirm("Are You sure ? This NOT be undone")) {
+    axios
+      .delete(`${BASE_URL}/api/posts/${id}`)
+      .then(res => {
+        history.push("/feed");
+        dispatch({
+          type: DELETE_POST,
+          payload: id
+        });
       })
-    );
+      .catch(err =>
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
+      );
   }
 };
 
 // Add Like
 export const addLike = id => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/posts/like/${id}`)
     .then(res => dispatch(getPosts()))

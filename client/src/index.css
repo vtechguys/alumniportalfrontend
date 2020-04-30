@@ -9,4 +9,12 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+  }
+.flex_row{
+  display: row;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+.space_arr{
+  justify-content: space-around;
 }

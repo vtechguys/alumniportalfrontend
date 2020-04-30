@@ -13,8 +13,6 @@ class EmailVerification{
         const pathname = location.pathname;
         const parseQueryString = queryString.parse(pathname);
 
-        console.log(parseQueryString);
-
     }
     resendEmailVerication(){
 

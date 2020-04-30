@@ -136,9 +136,7 @@ class CreateProfile extends Component {
       alert('Please select file');
     } 
     else {      
-      console.log(file);
       this.props.uploadAvatarRequest(file, this.state.user._id);
-      
     }
   }
 

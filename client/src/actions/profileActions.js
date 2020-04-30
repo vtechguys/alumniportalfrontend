@@ -1,5 +1,5 @@
-import axios from 'axios';
-import config from '../config/index'
+import axios from "axios";
+import config from "../config/index";
 import {
   GET_PROFILE,
   GET_PROFILES,
@@ -10,56 +10,57 @@ import {
   VERFIY_USER,
   ASSIGN_ROLE,
   PROFILE_ACTION
-} from './types';
-const {BASE_URL} = config
+} from "./types";
+const { BASE_URL } = config;
 
-export const verifyProfileHandle = (status, user) => dispatch =>{
-  console.log("Verify", status)
+export const verifyProfileHandle = (status, user) => dispatch => {
+  // eslint-disable-line no-unused-vars
+  console.log("Verify", status);
   // dispatch(setProfileActionLoading());
   axios
-  .post(`${BASE_URL}/api/profile/verify`, {
-    userId: user._id,
-    status
-  })
-  .then(res=>{
-    console.log("then call");
-    dispatch({
-      type: VERFIY_USER,
-      payload: res.data
+    .post(`${BASE_URL}/api/profile/verify`, {
+      userId: user._id,
+      status
+    })
+    .then(res => {
+      console.log("then call");
+      dispatch({
+        type: VERFIY_USER,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: VERFIY_USER,
+        payload: null
+      });
     });
-  })
-  .catch(err=>{
-    dispatch({
-      type: VERFIY_USER,
-      payload: null
-    });
-  });
-
 };
-export const assignRoleHandle = (role, user) => dispatch =>{
+export const assignRoleHandle = (role, user) => dispatch => {
+  // eslint-disable-line no-unused-vars
   // dispatch(setProfileActionLoading());
   axios
-  .post(`${BASE_URL}/api/users/assign-role`, {
-    userId: user._id,
-    role: role
-  })
-  .then(res=>{
-    dispatch({
-      type: ASSIGN_ROLE,
-      payload: res.data
+    .post(`${BASE_URL}/api/users/assign-role`, {
+      userId: user._id,
+      role: role
+    })
+    .then(res => {
+      dispatch({
+        type: ASSIGN_ROLE,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ASSIGN_ROLE,
+        payload: null
+      });
     });
-  })
-  .catch(err=>{
-    dispatch({
-      type: ASSIGN_ROLE,
-      payload: null
-    });
-  });
-
 };
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setProfileLoading());
   axios
     .get(`${BASE_URL}/api/profile`)
@@ -79,6 +80,7 @@ export const getCurrentProfile = () => dispatch => {
 
 // Get profile by handle
 export const getProfileByHandle = handle => dispatch => {
+  // eslint-disable-line no-unused-vars
   dispatch(setProfileLoading());
   axios
     .get(`${BASE_URL}/api/profile/handle/${handle}`)
@@ -98,9 +100,10 @@ export const getProfileByHandle = handle => dispatch => {
 
 // Create Profile
 export const createProfile = (profileData, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/profile`, profileData)
-    .then(res => history.push('/dashboard'))
+    .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -111,9 +114,10 @@ export const createProfile = (profileData, history) => dispatch => {
 
 // Add experience
 export const addExperience = (expData, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/profile/experience`, expData)
-    .then(res => history.push('/dashboard'))
+    .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -124,9 +128,10 @@ export const addExperience = (expData, history) => dispatch => {
 
 // Add education
 export const addEducation = (eduData, history) => dispatch => {
+  // eslint-disable-line no-unused-vars
   axios
     .post(`${BASE_URL}/api/profile/education `, eduData)
-    .then(res => history.push('/dashboard'))
+    .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -191,8 +196,9 @@ export const getProfiles = () => dispatch => {
 };
 
 // Delete account & profile
-export const deleteAccount = (data) => dispatch => {
-  if (window.confirm('Are you sure? This can NOT be undone!')) {
+export const deleteAccount = data => dispatch => {
+  if (window.confirm("Are you sure? This can NOT be undone!")) {
+    // eslint-disable-line no-unused-vars
     axios
       .delete(`${BASE_URL}/api/profile/${data}`)
       .then(res =>
@@ -216,11 +222,11 @@ export const setProfileLoading = () => {
     type: PROFILE_LOADING
   };
 };
-export const setProfileActionLoading = () =>{
+export const setProfileActionLoading = () => {
   return {
     type: PROFILE_ACTION
-  }
-}
+  };
+};
 // Clear profile
 export const clearCurrentProfile = () => {
   return {
