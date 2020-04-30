@@ -45,15 +45,20 @@ class Register extends Component {
       if ( value.length != 11) {
         msg = 'Enrollment Number must be  11 digits';
       } else {
-        const numEquivalentOfEnrollNo = Number(value);
-        if ( typeof numEquivalentOfEnrollNo != 'number' || Number.isNaN(numEquivalentOfEnrollNo)) {
-          msg = "Enrollment Number is not valid number";
-        } else {
-          const RollNumber = value.substring(0, 2);
-          const CollegeCode = value.substring(3,5);
-          const CourseCode = value.substring(6,8);
-          const YearOfAdmision = value.substring(9, 10);
+          const RollNumber = value.substring(0, 3); // substring does not include the end value
+          const CourseCode = value.substring(6,9);
+          const YearOfAdmision = value.substring(9, 11);
           if (CollegeCode != "208") {
+            msg = "Are you sure you are bpitian?";
+            return msg;
+          }
+          
+          const numEquivalentOfYearOfAdmision = Number(YearOfAdmision);
+          const currentTime = new Date();
+          const currentFullYear = currentTime.getFullYear();
+          const currentYear = currentFullYear.toString().substring(2,4);
+          const numEquivalentOfCurrentYear = Number(currentYear);
+          if (numEquivalentOfYearOfAdmision < 7 || numEquivalentOfYearOfAdmision > (numEquivalentOfCurrentYear-5)){
             msg = "Are you sure you are bpitian?";
             return msg;
           }
