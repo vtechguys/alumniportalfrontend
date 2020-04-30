@@ -17,7 +17,6 @@ class Register extends Component {
       errors: {},
       enrollmentNumber: ''
     };
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -37,9 +36,59 @@ class Register extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+  validateFieldEnrollmentNumber(value){
+    var msg = ''
+    if (!value) {
+      msg = 'Enrollment Number is requried';
+    }
+    else {
+      if ( value.length != 11) {
+        msg = 'Enrollment Number must be  11 digits';
+      } else {
+        const numEquivalentOfEnrollNo = Number(value);
+        if ( typeof numEquivalentOfEnrollNo != 'number' || Number.isNaN(numEquivalentOfEnrollNo)) {
+          msg = "Enrollment Number is not valid number";
+        } else {
+          const RollNumber = value.substring(0, 2);
+          const CollegeCode = value.substring(3,5);
+          const CourseCode = value.substring(6,8);
+          const YearOfAdmision = value.substring(9, 10);
+          if (CollegeCode != "208") {
+            msg = "Are you sure you are bpitian?";
+            return msg;
+          }
+          this.setState({
+            enrollmentDetails: {
+              RollNumber,
+              CollegeCode,
+              CourseCode,
+              YearOfAdmision,
+            }
+          });
+        }
+      }
+      
+    }
+   
+    return msg;
+  }
 
+
+  onBlur = (e) => {
+  }
   onSubmit(e) {
     e.preventDefault();
+    var msg = this.validateFieldEnrollmentNumber(this.state.enrollmentNumber);
+    if (msg && msg.length > 0) {
+      return this.setState(prevState => {
+        return {
+          errors: {
+            ...prevState.errors,
+            enrollmentNumber: msg,
+          },
+        };
+      });
+    }
 
     const newUser = {
       name: this.state.name,
@@ -71,8 +120,10 @@ class Register extends Component {
                   name="enrollmentNumber"
                   value={this.state.enrollmentNumber}
                   onChange={this.onChange}
+                  onBlur={this.onBlur}
                   error={errors.enrollmentNumber}
                   info="Your College Enrollment Number"
+                  type="number"
                 />
                 <TextFieldGroup
                   placeholder="Name"
