@@ -46,10 +46,10 @@ class Register extends Component {
         msg = 'Enrollment Number must be  11 digits';
       } else {
         const numEquivalentOfEnrollNo = Number(value);
-        if ( typeof numEquivalentOfEnrollNo != 'number' || Number.isNaN(numEquivalentOfEnrollNo)) {
+        if (Number.isNaN(numEquivalentOfEnrollNo)) {
           msg = "Enrollment Number is not valid number";
         } else {
-          const RollNumber = value.substring(0, 3); // substring does not include the end value
+          const RollNumber = value.substring(0, 3);
           const CollegeCode = value.substring(3,6);
           const CourseCode = value.substring(6,9);
           const YearOfAdmision = value.substring(9, 11);
