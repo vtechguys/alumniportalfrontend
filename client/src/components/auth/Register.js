@@ -73,6 +73,7 @@ class Register extends Component {
                   value={this.state.enrollmentNumber}
                   onChange={this.onChange}
                   error={errors.enrollmentNumber}
+                  type="number"
                   info="Your College Enrollment Number"
                 />
                 <TextFieldGroup
