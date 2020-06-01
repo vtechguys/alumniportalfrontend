@@ -109,6 +109,8 @@
 }
 
 .dashboard .create-profile-btn {
+    
+    /* removing width to make it responsive; */
     background: #2f3094!important;
     color : white;
     float: left;
