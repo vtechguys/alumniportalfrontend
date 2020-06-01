@@ -68,7 +68,7 @@ class ResetPassword extends Component {
               <TextFieldGroup
                 placeholder="Password"
                 name="password"
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={this.onChange}
                 //   error={errors.email}

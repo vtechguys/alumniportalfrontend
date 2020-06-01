@@ -130,9 +130,11 @@ class Register extends Component {
                   placeholder="Enrollment Number"
                   name="enrollmentNumber"
                   value={this.state.enrollmentNumber}
+                  type='number'
                   onChange={this.onChange}
                   onBlur={this.onBlur}
                   error={errors.enrollmentNumber}
+                  type="number"
                   info="Your College Enrollment Number"
                   type="number"
                 />
